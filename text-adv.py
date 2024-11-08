@@ -1,4 +1,3 @@
-from random import randrange
 game_paths = {
     "Haunted Forest": {
         "description": "You enter the Haunted Forest. Shadows loom, and the air is thick with an eerie mist. A distant growl echoes, sending chills down your spine.",
@@ -42,17 +41,17 @@ game_paths = {
                         "next_choice": {
                             "Negotiate with Figure": {
                                 "dialogue": "The figure vanishes, leaving the artifact in your care.",
-                                "outcome": "win"
+                                "outcome": "You win"
                             },
                             "Attempt to Flee": {
                                 "dialogue": "The artifact’s curse claims you.",
-                                "outcome": "lose"
+                                "outcome": "You lose"
                             }
                         }
                     },
                     "Leave Artifact": {
                         "dialogue": "You back away, but the ground collapses beneath you.",
-                        "outcome": "lose"
+                        "outcome": "You lose"
                     }
                 }
             },
@@ -61,11 +60,11 @@ game_paths = {
                 "next_choice": {
                     "Attempt to Tame Creature": {
                         "dialogue": "The creature becomes your loyal companion.",
-                        "outcome": "win"
+                        "outcome": "You win"
                     },
                     "Retreat Carefully": {
                         "dialogue": "You escape safely, feeling an unsettling presence.",
-                        "outcome": "win"
+                        "outcome": "You win"
                     }
                 }
             }
@@ -79,11 +78,11 @@ game_paths = {
                 "next_choice": {
                     "Fight with Enchanted Weapon": {
                         "dialogue": "With a final strike, the guardian fades.",
-                        "outcome": "win"
+                        "outcome": "You win"
                     },
                     "Attempt to Befriend Guardian": {
                         "dialogue": "The guardian grants you safe passage and a small treasure.",
-                        "outcome": "win"
+                        "outcome": "You win"
                     }
                 }
             },
@@ -92,11 +91,11 @@ game_paths = {
                 "next_choice": {
                     "Ignore Treasure and Seek Map": {
                         "dialogue": "Your courage earns you safe passage and a map.",
-                        "outcome": "win"
+                        "outcome": "You win"
                     },
                     "Take Treasure": {
                         "dialogue": "The curse claims you as part of its hoard.",
-                        "outcome": "lose"
+                        "outcome": "You lose"
                     }
                 }
             }
@@ -135,8 +134,22 @@ def haunted_forest():
             print(f"{index}. {choice}")
         choice_2 = validate_input("", (1,2))
         if choice_2 == 1:
-            print(f"{game_paths["Haunted Forest"]["choices"]["Run"]["next_choice"]["Fight with Weapon"]["dialogue"]} {game_paths["Haunted Forest"]["choices"]["Run"]["next_choice"]["Fight with Weapon"]["outcome"]} !")
-
+            print(f"{game_paths["Haunted Forest"]["choices"]["Run"]["next_choice"]["Fight with Weapon"]["dialogue"]} "
+                  f"{game_paths["Haunted Forest"]["choices"]["Run"]["next_choice"]["Fight with Weapon"]["outcome"]}!")
+        elif choice_2 == 2:
+            print(f"{game_paths["Haunted Forest"]["choices"]["Run"]["next_choice"]["Not Fight"]["dialogue"]} "
+                  f"{game_paths["Haunted Forest"]["choices"]["Run"]["next_choice"]["Not Fight"]["outcome"]}!")
+    elif choice_1 == 2:
+        print(f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["description"]} Do You:")
+        for index, choice in enumerate(game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"].keys(), start=1):
+            print(f"{index}. {choice}")
+        choice_2 = validate_input("", (1, 2))
+        if choice_2 == 1:
+            print(f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"]["Use Herb"]["dialogue"]} "
+                  f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"]["Use Herb"]["outcome"]}!")
+        elif choice_2 == 2:
+            print(f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"]["No Herb"]["dialogue"]} "
+                  f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"]["No Herb"]["outcome"]}!")
 
 def validate_input(prompt_text, valid_options = ()) -> int:
     valid = False
