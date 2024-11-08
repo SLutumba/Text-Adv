@@ -151,6 +151,76 @@ def haunted_forest():
             print(f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"]["No Herb"]["dialogue"]} "
                   f"{game_paths["Haunted Forest"]["choices"]["Stand Ground"]["next_choice"]["No Herb"]["outcome"]}!")
 
+def ancient_cave():
+    print(f"Ancient Cave\n{game_paths["Ancient Cave"]["description"]} Do You:")
+    for index, choice in enumerate(game_paths["Ancient Cave"]["choices"].keys(), start=1):
+        print(f"{index}. {choice}")
+    choice_1 = validate_input("", (1, 2))
+    if choice_1 == 1:
+        print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["description"]} Do You:")
+        for index, choice in enumerate(game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"].keys(), start=1):
+            print(f"{index}. {choice}")
+        choice_2 = validate_input("", (1, 2))
+        if choice_2 == 1:
+            print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Take Artifact"]["dialogue"]} Do You:")
+            for index, choice in enumerate(game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Take Artifact"]["next_choice"].keys(), start=1):
+                print(f"{index}. {choice}")
+            choice_3 = validate_input("", (1, 2))
+            if choice_3 == 1:
+               print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Take Artifact"]
+               ["next_choice"]["Negotiate with Figure"]["dialogue"]}")
+               print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Take Artifact"]
+               ["next_choice"]["Negotiate with Figure"]["outcome"]}")
+            elif choice_3 == 2:
+                print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Take Artifact"]
+                ["next_choice"]["Attempt to Flee"]["dialogue"]}")
+                print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Take Artifact"]
+                ["next_choice"]["Attempt to Flee"]["outcome"]}")
+        elif choice_2 == 2:
+            print(f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Leave Artifact"]["dialogue"]} "
+                  f"{game_paths["Ancient Cave"]["choices"]["Explore Deeper"]["next_choice"]["Leave Artifact"]["outcome"]}!")
+    elif choice_1 == 2:
+        print(f"{game_paths["Ancient Cave"]["choices"]["Stay Near Entrance"]["description"]} Do You:")
+        for index, choice in enumerate(game_paths["Ancient Cave"]["choices"]["Stay Near Entrance"]["next_choice"].keys(),
+                                       start=1):
+            print(f"{index}. {choice}")
+        choice_2 = validate_input("", (1, 2))
+        if choice_2 == 1:
+            print(f"{game_paths["Ancient Cave"]["choices"]["Stay Near Entrance"]["next_choice"]["Attempt to Tame Creature"]["dialogue"]} "
+                  f"{game_paths["Ancient Cave"]["choices"]["Stay Near Entrance"]["next_choice"]["Attempt to Tame Creature"]["outcome"]}!")
+        elif choice_2 == 2:
+            print(f"{game_paths["Ancient Cave"]["choices"]["Stay Near Entrance"]["next_choice"]["Retreat Carefully"]["dialogue"]} "
+                  f"{game_paths["Ancient Cave"]["choices"]["Stay Near Entrance"]["next_choice"]["Retreat Carefully"]["outcome"]}!")
+
+def abandoned_castle():
+    print(f"Abandoned Castle\n{game_paths["Abandoned Castle"]["description"]} Do You:")
+    for index, choice in enumerate(game_paths["Abandoned Castle"]["choices"].keys(), start=1):
+        print(f"{index}. {choice}")
+    choice_1 = validate_input("", (1, 2))
+    if choice_1 == 1:
+        print(f"{game_paths["Abandoned Castle"]["choices"]["Investigate Throne Room"]["description"]} Do You:")
+        for index, choice in enumerate(game_paths["Abandoned Castle"]["choices"]["Investigate Throne Room"]["next_choice"].keys(), start=1):
+            print(f"{index}. {choice}")
+        choice_2 = validate_input("", (1, 2))
+        if choice_2 == 1:
+            print(f"{game_paths["Abandoned Castle"]["choices"]["Investigate Throne Room"]["next_choice"]["Fight with Enchanted Weapon"]["dialogue"]} "
+                  f"{game_paths["Abandoned Castle"]["choices"]["Investigate Throne Room"]["next_choice"]["Fight with Enchanted Weapon"]["outcome"]}!")
+        elif choice_2 == 2:
+            print(f"{game_paths["Abandoned Castle"]["choices"]["Investigate Throne Room"]["next_choice"]["Attempt to Befriend Guardian"]["dialogue"]} "
+                  f"{game_paths["Abandoned Castle"]["choices"]["Investigate Throne Room"]["next_choice"]["Attempt to Befriend Guardian"]["outcome"]}!")
+    elif choice_1 == 2:
+        print(f"{game_paths["Abandoned Castle"]["choices"]["Search Dungeon"]["description"]} Do You:")
+        for index, choice in enumerate(game_paths["Abandoned Castle"]["choices"]["Search Dungeon"]["next_choice"].keys(),
+                                       start=1):
+            print(f"{index}. {choice}")
+        choice_2 = validate_input("", (1, 2))
+        if choice_2 == 1:
+            print(f"{game_paths["Abandoned Castle"]["choices"]["Search Dungeon"]["next_choice"]["Ignore Treasure and Seek Map"]["dialogue"]} "
+                  f"{game_paths["Abandoned Castle"]["choices"]["Search Dungeon"]["next_choice"]["Ignore Treasure and Seek Map"]["outcome"]}!")
+        elif choice_2 == 2:
+            print(f"{game_paths["Abandoned Castle"]["choices"]["Search Dungeon"]["next_choice"]["Take Treasure"]["dialogue"]} "
+                  f"{game_paths["Abandoned Castle"]["choices"]["Search Dungeon"]["next_choice"]["Take Treasure"]["outcome"]}!")
+
 def validate_input(prompt_text, valid_options = ()) -> int:
     valid = False
     while not valid:
@@ -164,15 +234,6 @@ def validate_input(prompt_text, valid_options = ()) -> int:
                 return user_input
         except ValueError:
             print("Invalid input, must be a integer.\n")
-
-
-
-def ancient_cave():
-    pass
-
-
-def abandoned_castle():
-    pass
 
 
 if __name__ == "__main__":
